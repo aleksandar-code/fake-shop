@@ -1,3 +1,9 @@
+import { Header } from "./Header";
+
 export function Shopping() {
-  return <>this is shopping</>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }

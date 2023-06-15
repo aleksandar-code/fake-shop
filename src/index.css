@@ -80,13 +80,24 @@ header .arrow-up-svg {
   position: absolute;
   width: 2em;
   height: auto;
-  animation: append-animate 500ms;
+  animation: append-animate 1500ms;
   transform: translate(100%, 10%);
 }
 
 header .cart-svg {
   width: 2em;
   height: auto;
+}
+
+.cart-svg path {
+  transition: all ease-in-out 500ms;
+}
+
+.cart-svg:hover {
+  > path {
+    fill: var(--black);
+  }
+  cursor: pointer;
 }
 
 header h6:hover {
