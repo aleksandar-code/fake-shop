@@ -10,10 +10,6 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route
-            path="/fake-shop"
-            element={<Homepage />}
-          ></Route>
-          <Route
             path="/"
             element={<Homepage />}
           />
