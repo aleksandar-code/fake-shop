@@ -1,14 +1,24 @@
 export function Homepage() {
   function placeArrowOnMouseEnter(target) {
     const arrowUp = document.querySelector(".arrow-up-parent");
-    if (arrowUp !== null) document.querySelector(".arrow-up-parent")?.remove();
-    target?.parentNode?.appendChild(arrowUp);
+    if (
+      arrowUp !== null &&
+      target.parentNode !== document.querySelector(".homepage-button")
+    ) {
+      document.querySelector(".arrow-up-parent")?.remove();
+      target?.parentNode?.appendChild(arrowUp);
+    }
   }
 
   function placeArrowOnMouseLeave() {
     const arrowUp: any = document.querySelector(".arrow-up-parent");
-    if (arrowUp !== null) document.querySelector(".arrow-up-parent")?.remove();
-    document.querySelector(".homepage-button")?.appendChild(arrowUp);
+    if (
+      arrowUp !== null &&
+      arrowUp.parentNode !== document.querySelector(".homepage-button")
+    ) {
+      document.querySelector(".arrow-up-parent")?.remove();
+      document.querySelector(".homepage-button")?.appendChild(arrowUp);
+    }
   }
 
   return (

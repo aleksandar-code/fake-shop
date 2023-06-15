@@ -80,6 +80,7 @@ header .arrow-up-svg {
   position: absolute;
   width: 2em;
   height: auto;
+  animation: append-animate 500ms;
   transform: translate(100%, 10%);
 }
 
@@ -92,4 +93,13 @@ header h6:hover {
   color: var(--black);
   cursor: pointer;
   transition: all ease-in-out 500ms;
+}
+
+@keyframes append-animate {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
