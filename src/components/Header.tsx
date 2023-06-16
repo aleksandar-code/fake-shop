@@ -14,9 +14,10 @@ export function Header() {
     event: React.MouseEvent<Element, MouseEvent>
   ) {
     const arrowUp = document.querySelector(".arrow-up-parent");
-    if (arrowUp !== null) {
+    const target = event.target as HTMLButtonElement;
+    if (arrowUp !== null && target.parentNode?.lastChild !== arrowUp) {
       document.querySelector(".arrow-up-parent")?.remove();
-      const target = event.target as HTMLButtonElement;
+
       if (target) target.parentNode?.appendChild(arrowUp);
     }
   }
