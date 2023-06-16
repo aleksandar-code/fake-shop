@@ -184,7 +184,8 @@ header h6:hover {
 .hero-wrapper {
   display: flex;
   flex-direction: column;
-  padding: 0 256px;
+  align-self: center;
+  min-width: 1024px;
 }
 
 .intro-wrapper {
