@@ -81,6 +81,10 @@ header {
   padding: 0 152px;
 }
 
+header h6 {
+  transition: all ease-in-out 500ms;
+}
+
 header ul {
   display: flex;
   gap: 16px;
@@ -123,7 +127,6 @@ header .cart-svg {
 header h6:hover {
   color: var(--black);
   cursor: pointer;
-  transition: all ease-in-out 500ms;
 }
 
 .intro-wrapper {
@@ -145,7 +148,7 @@ header h6:hover {
 
 .intro-wrapper button {
   color: white;
-  border: none;
+  border: 4px solid transparent;
   background: var(--gradient);
   padding: 24px 48px;
   border-radius: 0px 81px;
@@ -155,6 +158,7 @@ header h6:hover {
   box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.25);
   font-size: 1.3em;
   font-weight: 800;
+  transition: all ease-in-out 400ms;
 }
 
 .intro-wrapper button:hover {
@@ -218,12 +222,14 @@ footer ul > :last-child > * {
 }
 
 footer button {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 1.3rem;
   font-weight: 800;
   color: white;
   background: none;
-  outline: 4px solid white;
-  border: none;
+  border: 4px solid white;
   padding: 24px 48px;
   border-radius: 81px;
   box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
@@ -232,12 +238,15 @@ footer button {
   justify-content: center;
   align-items: center;
   gap: 8px;
+  transition: all ease-in-out 400ms;
 }
 
 footer button:hover {
   background: var(--black);
-  outline: 4px solid var(--black);
+  border: 4px solid var(--black);
   cursor: pointer;
+  padding: 24px 44px;
+  gap: 16px;
 }
 
 footer button .arrow-right-svg {
