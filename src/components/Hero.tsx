@@ -29,7 +29,7 @@ export function Hero() {
         </div>
 
         <div className="sales-wrapper">
-          <h2>Designer Products</h2>
+          <h2>Products</h2>
           <h3>23:49:27</h3>
           <h3>Time Limited</h3>
         </div>
