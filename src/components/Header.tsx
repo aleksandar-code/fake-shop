@@ -17,7 +17,7 @@ export function Header() {
     const target = event.target as HTMLButtonElement;
     if (arrowUp !== null && target.parentNode?.lastChild !== arrowUp) {
       document.querySelector(".arrow-up-parent")?.remove();
-
+      arrowUp.classList.add("animate");
       if (target) target.parentNode?.appendChild(arrowUp);
     }
   }
@@ -29,6 +29,7 @@ export function Header() {
       arrowUp.parentNode !==
         document.querySelector(`.${sanitize(location)}-button`)
     ) {
+      document.querySelector(".arrow-up-parent")?.classList.add("animate");
       document.querySelector(".arrow-up-parent")?.remove();
       document
         .querySelector(`.${sanitize(location)}-button`)

@@ -80,8 +80,11 @@ header .arrow-up-svg {
   position: absolute;
   width: 2em;
   height: auto;
-  animation: append-animate 1500ms;
   transform: translate(100%, 10%);
+}
+
+header .arrow-up-parent.animate {
+  animation: append-animate 1500ms;
 }
 
 header .cart-svg {
