@@ -148,7 +148,7 @@ header h6:hover {
 
 .intro-wrapper button {
   color: white;
-  border: 4px solid transparent;
+  border: 4px solid #ee02db;
   background: var(--gradient);
   padding: 24px 48px;
   border-radius: 0px 81px;
