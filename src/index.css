@@ -13,11 +13,18 @@
   --black-5: #f4f4f4;
 }
 
-* {
+body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 h6 {
@@ -61,6 +68,12 @@ p {
 }
 
 /* Css */
+
+#root {
+  display: flex;
+  flex-direction: column;
+  gap: 256px;
+}
 
 header {
   background: var(--gradient);
@@ -170,6 +183,7 @@ header h6:hover {
 .hero-wrapper {
   display: flex;
   flex-direction: column;
+  padding: 0 256px;
 }
 
 .intro-wrapper {
@@ -179,6 +193,64 @@ header h6:hover {
 .sales-wrapper {
   align-self: flex-end;
   text-align: center;
+}
+
+footer ul li {
+  list-style: none;
+  color: white;
+  font-size: 1.3em;
+}
+
+footer {
+  background: var(--secondary-color);
+  display: flex;
+  height: 124px;
+  align-items: center;
+  padding: 0 152px;
+}
+
+footer ul {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+footer ul > :last-child > * {
+  display: block;
+}
+
+footer button {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: white;
+  background: none;
+  outline: 4px solid white;
+  border: none;
+  padding: 24px 48px;
+  border-radius: 81px;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+footer button:hover {
+  background: var(--black);
+  outline: 4px solid var(--black);
+  cursor: pointer;
+}
+
+footer button .arrow-right-svg {
+  transform: rotate(90deg);
+  width: 1em;
+  height: auto;
+}
+
+footer button .arrow-right-svg path {
+  fill: white;
 }
 
 @keyframes append-animate {
