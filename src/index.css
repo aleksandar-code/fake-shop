@@ -34,6 +34,7 @@ h4 {
 
 h3 {
   font-size: 3.75em;
+  font-weight: 300;
 }
 
 h2 {
@@ -42,6 +43,11 @@ h2 {
 
 h1 {
   font-size: 7.4em;
+}
+
+p {
+  font-size: 1em;
+  color: var(--black-75);
 }
 
 /* svgs */
@@ -108,6 +114,71 @@ header h6:hover {
   color: var(--black);
   cursor: pointer;
   transition: all ease-in-out 500ms;
+}
+
+.intro-wrapper {
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  gap: 32px;
+}
+
+.intro-wrapper > * {
+  display: inline-block;
+}
+
+.intro-wrapper h5 {
+  color: var(--black-75);
+}
+
+.intro-wrapper button {
+  color: white;
+  border: none;
+  background: var(--gradient);
+  padding: 24px 48px;
+  border-radius: 0px 81px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.25);
+  font-size: 1.3em;
+  font-weight: 800;
+}
+
+.intro-wrapper button:hover {
+  gap: 16px;
+  padding: 24px 44px;
+  cursor: pointer;
+}
+
+.intro-wrapper button .arrow-right-svg {
+  transform: rotate(90deg);
+  width: 1em;
+  height: auto;
+}
+
+.intro-wrapper button .arrow-right-svg path {
+  fill: white;
+}
+
+.sales-wrapper > :nth-child(2) {
+  color: var(--primary-color);
+}
+
+.hero-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.intro-wrapper {
+  align-self: flex-start;
+}
+
+.sales-wrapper {
+  align-self: flex-end;
+  text-align: center;
 }
 
 @keyframes append-animate {
