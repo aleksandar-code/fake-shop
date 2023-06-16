@@ -3,26 +3,34 @@ import { ArrowUp } from "./ArrowUp";
 
 export function Header() {
   const navigate = useNavigate();
-  const location = useLocation().pathname;
+  let location = useLocation().pathname;
+  if (location === "/") location = "/homepage";
 
-  function placeArrowOnMouseEnter(target) {
+  function sanitize(location: string) {
+    return location.replace(/^\/|\/$/g, "");
+  }
+
+  function placeArrowOnMouseEnter(
+    event: React.MouseEvent<Element, MouseEvent>
+  ) {
     const arrowUp = document.querySelector(".arrow-up-parent");
     if (arrowUp !== null) {
       document.querySelector(".arrow-up-parent")?.remove();
-      target?.parentNode?.appendChild(arrowUp);
+      const target = event.target as HTMLButtonElement;
+      if (target) target.parentNode?.appendChild(arrowUp);
     }
   }
 
   function placeArrowOnMouseLeave() {
-    const arrowUp: any = document.querySelector(".arrow-up-parent");
+    const arrowUp: Element | null = document.querySelector(".arrow-up-parent");
     if (
       arrowUp !== null &&
-      arrowUp.parentNode ===
-        document.querySelector(`.${location.replace(/^\/|\/$/g, "")}-button`)
+      arrowUp.parentNode !==
+        document.querySelector(`.${sanitize(location)}-button`)
     ) {
       document.querySelector(".arrow-up-parent")?.remove();
       document
-        .querySelector(`.${location.replace(/^\/|\/$/g, "")}-button`)
+        .querySelector(`.${sanitize(location)}-button`)
         ?.appendChild(arrowUp);
     }
   }
@@ -35,17 +43,17 @@ export function Header() {
       <ul>
         <li className="homepage-button">
           <h6
-            onMouseEnter={(e) => placeArrowOnMouseEnter(e.target)}
+            onMouseEnter={(event) => placeArrowOnMouseEnter(event)}
             onMouseLeave={() => placeArrowOnMouseLeave()}
             onClick={() => navigate("/")}
           >
             Homepage
           </h6>
-          {location === "/" && <ArrowUp />}
+          {location === "/homepage" && <ArrowUp />}
         </li>
         <li className="shopping-button">
           <h6
-            onMouseEnter={(e) => placeArrowOnMouseEnter(e.target)}
+            onMouseEnter={(event) => placeArrowOnMouseEnter(event)}
             onMouseLeave={() => placeArrowOnMouseLeave()}
             onClick={() => navigate("/shopping")}
           >

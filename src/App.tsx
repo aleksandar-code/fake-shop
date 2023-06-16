@@ -7,7 +7,7 @@ import { Checkout } from "./components/Checkout";
 export default function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="fake-shop">
         <Routes>
           <Route
             path="/"
