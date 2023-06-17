@@ -38,7 +38,10 @@ export function Header() {
   }
   return (
     <header>
-      <span className="icon-wrapper">
+      <span
+        onClick={() => navigate("/checkout")}
+        className="icon-wrapper"
+      >
         <svg
           width="71"
           height="70"

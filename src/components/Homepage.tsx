@@ -7,7 +7,7 @@ export function Homepage() {
     <>
       <Header />
       <Hero />
-      <Footer />
+      <Footer text="Shop now" />
     </>
   );
 }

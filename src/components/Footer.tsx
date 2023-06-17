@@ -1,4 +1,4 @@
-export function Footer() {
+export function Footer({ text }) {
   return (
     <>
       <footer>
@@ -7,8 +7,8 @@ export function Footer() {
           <li>© Fake Shop - 2023 </li>
           <li>
             <button>
-              Shop now
-              <span>
+              {text}
+              <span className="icon-wrapper">
                 <svg
                   className="arrow-right-svg"
                   width="12"
