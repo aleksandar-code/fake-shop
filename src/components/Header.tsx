@@ -1,46 +1,49 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import ArrowUp from "./ArrowUp";
+import { RefObject, useRef } from "react";
 
 export default function Header() {
   const navigate = useNavigate();
-  let location = useLocation().pathname;
-  if (location === "/") location = "/homepage";
-
-  function sanitize(location: string) {
-    return location.replace(/^\/|\/$/g, "");
+  const location = useLocation().pathname;
+  let currentUrlRef: RefObject<HTMLLIElement> | null = null;
+  const homepageRef = useRef<HTMLLIElement>(null);
+  const shoppingRef = useRef<HTMLLIElement>(null);
+  const arrowRef = useRef<HTMLSpanElement>(null);
+  if (location === "/") {
+    currentUrlRef = homepageRef;
+  } else {
+    currentUrlRef = shoppingRef;
   }
 
   function placeArrowOnMouseEnter(
     event: React.MouseEvent<Element, MouseEvent>
   ) {
-    const arrowUp = document.querySelector(".arrow-up-parent");
     const target = event.target as HTMLButtonElement;
-    if (arrowUp !== null && target.parentNode?.lastChild !== arrowUp) {
-      document.querySelector(".arrow-up-parent")?.remove();
-      arrowUp.classList.add("animate");
-      if (target) target.parentNode?.appendChild(arrowUp);
+    if (
+      arrowRef.current !== null &&
+      target.parentNode?.lastChild !== arrowRef.current
+    ) {
+      arrowRef.current.remove();
+      arrowRef.current.classList.add("animate");
+      if (target) target.parentNode?.appendChild(arrowRef.current);
     }
   }
 
   function placeArrowOnMouseLeave() {
-    const arrowUp: Element | null = document.querySelector(".arrow-up-parent");
     if (
-      arrowUp !== null &&
-      arrowUp.parentNode !==
-        document.querySelector(`.${sanitize(location)}-button`)
+      arrowRef.current !== null &&
+      currentUrlRef?.current !== arrowRef.current.parentNode
     ) {
-      document.querySelector(".arrow-up-parent")?.classList.add("animate");
-      document.querySelector(".arrow-up-parent")?.remove();
-      document
-        .querySelector(`.${sanitize(location)}-button`)
-        ?.appendChild(arrowUp);
+      arrowRef.current.classList.add("animate");
+      arrowRef.current.remove();
+      currentUrlRef?.current?.appendChild(arrowRef.current);
     }
   }
   return (
     <header>
       <span
-        onClick={() => navigate("/checkout")}
         className="icon-wrapper"
+        onClick={() => navigate("/checkout")}
       >
         <svg
           width="71"
@@ -65,7 +68,10 @@ export default function Header() {
         </svg>
       </span>
       <ul>
-        <li className="homepage-button">
+        <li
+          className="homepage-button"
+          ref={homepageRef}
+        >
           <h6
             onMouseEnter={(event) => placeArrowOnMouseEnter(event)}
             onMouseLeave={() => placeArrowOnMouseLeave()}
@@ -73,9 +79,12 @@ export default function Header() {
           >
             Homepage
           </h6>
-          {location === "/homepage" && <ArrowUp />}
+          {location === "/" && <ArrowUp arrowRef={arrowRef} />}
         </li>
-        <li className="shopping-button">
+        <li
+          className="shopping-button"
+          ref={shoppingRef}
+        >
           <h6
             onMouseEnter={(event) => placeArrowOnMouseEnter(event)}
             onMouseLeave={() => placeArrowOnMouseLeave()}
@@ -83,7 +92,7 @@ export default function Header() {
           >
             Shopping
           </h6>
-          {location === "/shopping" && <ArrowUp />}
+          {location === "/shopping" && <ArrowUp arrowRef={arrowRef} />}
         </li>
       </ul>
       <span className="icon-wrapper">

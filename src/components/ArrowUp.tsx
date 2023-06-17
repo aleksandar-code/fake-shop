@@ -1,6 +1,9 @@
-export default function ArrowUp() {
+export default function ArrowUp({ arrowRef }) {
   return (
-    <span className="arrow-up-parent">
+    <span
+      className="arrow-up-parent"
+      ref={arrowRef}
+    >
       <svg
         className="arrow-up-svg"
         width="12"
