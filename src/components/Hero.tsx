@@ -1,4 +1,29 @@
+import { useEffect } from "react";
+
 export function Hero() {
+  function salesTimer() {
+    setInterval(function time() {
+      const d = new Date();
+      const hours: number | string = 24 - d.getHours();
+      let min: number | string = 60 - d.getMinutes();
+      if ((min + "").length == 1) {
+        min = "0" + min;
+      }
+      let sec: number | string = 60 - d.getSeconds();
+      if ((sec + "").length == 1) {
+        sec = "0" + sec;
+      }
+      const element = document.querySelector(".timer");
+      if (element) {
+        element.textContent = `${hours + ":" + min + ":" + sec}`;
+      }
+    }, 1000);
+  }
+
+  useEffect(() => {
+    salesTimer();
+  }, []);
+
   return (
     <>
       <div className="hero-wrapper">
@@ -30,7 +55,7 @@ export function Hero() {
 
         <div className="sales-wrapper">
           <h2>Products</h2>
-          <h3>23:49:27</h3>
+          <h3 className="timer"></h3>
           <h3>Time Limited</h3>
         </div>
       </div>
