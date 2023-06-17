@@ -95,7 +95,10 @@ export default function Header() {
           {location === "/shopping" && <ArrowUp arrowRef={arrowRef} />}
         </li>
       </ul>
-      <span className="icon-wrapper">
+      <span
+        className="icon-wrapper"
+        onClick={() => navigate("/checkout")}
+      >
         <svg
           className="cart-svg"
           width="15"

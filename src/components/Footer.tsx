@@ -1,4 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Footer({ text }) {
+  const navigate = useNavigate();
+  let url = "";
+  if (text === "Shop now" || text === "Shop") {
+    url = "/shopping";
+  } else if (text === "Checkout") {
+    url = "/checkout";
+  }
   return (
     <>
       <footer>
@@ -6,7 +15,7 @@ export default function Footer({ text }) {
         <ul>
           <li>© Fake Shop - 2023 </li>
           <li>
-            <button>
+            <button onClick={() => navigate(url)}>
               {text}
               <span className="icon-wrapper">
                 <svg

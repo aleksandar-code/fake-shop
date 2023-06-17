@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import Timer from "./Timer";
 
 export default function Hero() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="hero-wrapper">
@@ -11,7 +13,7 @@ export default function Hero() {
             Welcome at our FAKE SHOP, we sell fake products, you can buy them
             but they are fake.
           </h5>
-          <button>
+          <button onClick={() => navigate("/shopping")}>
             Shop now
             <span className="icon-wrapper">
               <svg
