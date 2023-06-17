@@ -1,32 +1,33 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 export function Hero() {
-  function salesTimer() {
-    setInterval(function time() {
-      const d = new Date();
-      const hours: number | string = 24 - d.getHours();
-      let min: number | string = 60 - d.getMinutes();
-      if ((min + "").length == 1) {
-        min = "0" + min;
-      }
-      let sec: number | string = 60 - d.getSeconds();
-      if ((sec + "").length == 1) {
-        sec = "0" + sec;
-      }
-      const element = document.querySelector(".timer");
-      if (element) {
-        element.textContent = `${hours + ":" + min + ":" + sec}`;
-      }
-    }, 1000);
-  }
+  // function salesTimer() {
+  //   setInterval(function time() {
+  //     const d = new Date();
+  //     const hours: number | string = 24 - d.getHours();
+  //     let min: number | string = 60 - d.getMinutes();
+  //     if ((min + "").length == 1) {
+  //       min = "0" + min;
+  //     }
+  //     let sec: number | string = 60 - d.getSeconds();
+  //     if ((sec + "").length == 1) {
+  //       sec = "0" + sec;
+  //     }
+  //     const element = document.querySelector(".timer");
+  //     if (element) {
+  //       element.textContent = `${hours + ":" + min + ":" + sec}`;
+  //     }
+  //   }, 1000);
+  // }
 
-  useEffect(() => {
-    salesTimer();
-  }, []);
+  // useEffect(() => {
+  //   salesTimer();
+  // }, []);
 
   return (
     <>
       <div className="hero-wrapper">
+        <div className="blur-red"></div>
         <div className="intro-wrapper">
           <h1>FAKE SHOP</h1>
           <h5>

@@ -2,6 +2,7 @@ export function Footer() {
   return (
     <>
       <footer>
+        <div className="blur-violet"></div>
         <ul>
           <li>© Fake Shop - 2023 </li>
           <li>
