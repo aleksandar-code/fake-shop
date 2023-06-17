@@ -1,4 +1,4 @@
-export function Footer({ text }) {
+export default function Footer({ text }) {
   return (
     <>
       <footer>

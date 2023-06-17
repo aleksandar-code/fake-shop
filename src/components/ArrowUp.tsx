@@ -1,4 +1,4 @@
-export function ArrowUp() {
+export default function ArrowUp() {
   return (
     <span className="arrow-up-parent">
       <svg

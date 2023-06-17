@@ -1,31 +1,6 @@
-// import { useEffect } from "react";
+import Timer from "./Timer";
 
-import { Timer } from "./Timer";
-
-export function Hero() {
-  // function salesTimer() {
-  //   setInterval(function time() {
-  //     const d = new Date();
-  //     const hours: number | string = 24 - d.getHours();
-  //     let min: number | string = 60 - d.getMinutes();
-  //     if ((min + "").length == 1) {
-  //       min = "0" + min;
-  //     }
-  //     let sec: number | string = 60 - d.getSeconds();
-  //     if ((sec + "").length == 1) {
-  //       sec = "0" + sec;
-  //     }
-  //     const element = document.querySelector(".timer");
-  //     if (element) {
-  //       element.textContent = `${hours + ":" + min + ":" + sec}`;
-  //     }
-  //   }, 1000);
-  // }
-
-  // useEffect(() => {
-  //   salesTimer();
-  // }, []);
-
+export default function Hero() {
   return (
     <>
       <div className="hero-wrapper">

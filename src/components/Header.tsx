@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { ArrowUp } from "./ArrowUp";
+import ArrowUp from "./ArrowUp";
 
-export function Header() {
+export default function Header() {
   const navigate = useNavigate();
   let location = useLocation().pathname;
   if (location === "/") location = "/homepage";
