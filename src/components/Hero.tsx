@@ -1,5 +1,7 @@
 // import { useEffect } from "react";
 
+import { Timer } from "./Timer";
+
 export function Hero() {
   // function salesTimer() {
   //   setInterval(function time() {
@@ -56,7 +58,7 @@ export function Hero() {
 
         <div className="sales-wrapper">
           <h2>Products</h2>
-          <h3 className="timer"></h3>
+          <Timer />
           <h3>Time Limited</h3>
         </div>
       </div>
