@@ -1,24 +1,22 @@
 /* Initialize styles */
 
-:root {
-  --primary-color: #e60b13;
-  --secondary-color: #c400f0;
-  --gradient: linear-gradient(229.3deg, #ee00f2 14.62%, #e60b13 86.57%);
+$primary-color: #e60b13;
+$secondary-color: #c400f0;
+$gradient: linear-gradient(229.3deg, #ee00f2 14.62%, #e60b13 86.57%);
 
-  --black: #262121;
-  --black-75: #5c5858;
-  --black-50: #929090;
-  --black-25: #c9c8c8;
-  --black-10: #e9e9e9;
-  --black-5: #f4f4f4;
-}
+$black: #262121;
+$black-75: #5c5858;
+$black-50: #929090;
+$black-25: #c9c8c8;
+$black-10: #e9e9e9;
+$black-5: #f4f4f4;
 
 body {
   font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--black-10);
+  background-color: $black-10;
 }
 
 * {
@@ -54,7 +52,7 @@ h1 {
 
 p {
   font-size: 1em;
-  color: var(--black-75);
+  color: $black-75;
 }
 
 /* svgs */
@@ -78,112 +76,58 @@ p {
 }
 
 header {
-  background: var(--gradient);
+  background: $gradient;
   display: flex;
   height: 124px;
   justify-content: space-between;
   align-items: center;
   padding: 0 152px;
-}
 
-header h6 {
-  transition: all ease-in-out 500ms;
-}
+  ul {
+    display: flex;
+    gap: 16px;
+    li {
+      color: white;
+      list-style: none;
+      position: relative;
 
-header ul {
-  display: flex;
-  gap: 16px;
-}
+      .arrow-up-parent.animate {
+        animation: append-animate 1500ms;
+      }
+      .arrow-up-svg {
+        position: absolute;
+        width: 2em;
+        height: auto;
+        transform: translate(100%, 10%);
+      }
 
-header ul li {
-  color: white;
-  list-style: none;
-  position: relative;
-}
+      h6 {
+        transition: all ease-in-out 500ms;
 
-header .arrow-up-svg {
-  position: absolute;
-  width: 2em;
-  height: auto;
-  transform: translate(100%, 10%);
-}
+        &:hover {
+          color: $black;
+          cursor: pointer;
+        }
+      }
+    }
+  }
 
-header .arrow-up-parent.animate {
-  animation: append-animate 1500ms;
-}
+  .cart-svg {
+    width: 2em;
+    height: auto;
 
-header .cart-svg {
-  width: 2em;
-  height: auto;
-}
+    path {
+      transition: all ease-in-out 500ms;
+    }
 
-.cart-svg path {
-  transition: all ease-in-out 500ms;
-}
+    &:hover {
+      cursor: pointer;
 
-.cart-svg:hover {
-  cursor: pointer;
-}
-
-.cart-svg:hover path {
-  fill: var(--black);
-}
-
-header h6:hover {
-  color: var(--black);
-  cursor: pointer;
-}
-
-.intro-wrapper {
-  max-width: 680px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 0;
-  gap: 32px;
-}
-
-.intro-wrapper > * {
-  display: inline-block;
-}
-
-.intro-wrapper h5 {
-  color: var(--black-75);
-}
-
-.intro-wrapper button {
-  color: white;
-  border: 4px solid #ee02db;
-  background: var(--gradient);
-  padding: 24px 48px;
-  border-radius: 0px 81px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.25);
-  font-size: 1.3em;
-  font-weight: 800;
-  transition: all ease-in-out 400ms;
-}
-
-.intro-wrapper button:hover {
-  gap: 16px;
-  padding: 24px 44px;
-  cursor: pointer;
-}
-
-.intro-wrapper button .arrow-right-svg {
-  transform: rotate(90deg);
-  width: 1em;
-  height: auto;
-}
-
-.intro-wrapper button .arrow-right-svg path {
-  fill: white;
-}
-
-.sales-wrapper > :nth-child(2) {
-  color: var(--primary-color);
+      path {
+        fill: $black;
+      }
+    }
+  }
 }
 
 .hero-wrapper {
@@ -191,47 +135,77 @@ header h6:hover {
   flex-direction: column;
   align-self: center;
   min-width: 1024px;
-}
+  position: relative;
 
-.intro-wrapper {
-  align-self: flex-start;
+  .intro-wrapper {
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: flex-start;
+    padding: 0;
+    gap: 32px;
+
+    & > * {
+      display: inline-block;
+    }
+
+    h5 {
+      color: $black-75;
+    }
+
+    button {
+      color: white;
+      border: 4px solid #ee02db;
+      background: $gradient;
+      padding: 24px 48px;
+      border-radius: 0px 81px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.25);
+      font-size: 1.3em;
+      font-weight: 800;
+      transition: all ease-in-out 400ms;
+
+      &:hover {
+        gap: 16px;
+        padding: 24px 44px;
+        cursor: pointer;
+      }
+
+      .arrow-right-svg {
+        transform: rotate(90deg);
+        width: 1em;
+        height: auto;
+
+        path {
+          fill: white;
+        }
+      }
+    }
+  }
+
+  .blur-red {
+    position: absolute;
+    width: 512px;
+    height: 256px;
+    top: 20%;
+    left: -50%;
+    transform: translateY(20%) translateX(50%);
+    z-index: -1;
+    background: $primary-color;
+    filter: blur(200px);
+  }
 }
 
 .sales-wrapper {
   align-self: flex-end;
   text-align: center;
-}
 
-footer {
-  position: relative;
-}
-
-.hero-wrapper {
-  position: relative;
-}
-
-.blur-red {
-  position: absolute;
-  width: 512px;
-  height: 256px;
-  top: 20%;
-  left: -50%;
-  transform: translateY(20%) translateX(50%);
-  z-index: -1;
-  background: var(--primary-color);
-  filter: blur(200px);
-}
-
-.blur-violet {
-  position: absolute;
-  width: 512px;
-  height: 256px;
-  top: -70%;
-  left: 50%;
-  transform: translateY(-70%) translateX(50%);
-  z-index: -1;
-  background: var(--secondary-color);
-  filter: blur(200px);
+  & > :nth-child(2) {
+    color: $primary-color;
+  }
 }
 
 footer ul li {
@@ -241,61 +215,75 @@ footer ul li {
 }
 
 footer {
-  background: var(--secondary-color);
+  background: $secondary-color;
   display: flex;
   height: 124px;
   align-items: center;
   padding: 0 152px;
+  position: relative;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+
+    & > :last-child > * {
+      display: block;
+    }
+  }
+
+  button {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: white;
+    background: none;
+    border: 4px solid white;
+    padding: 24px 48px;
+    border-radius: 81px;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: all ease-in-out 400ms;
+
+    &:hover {
+      background: $black;
+      border: 4px solid $black;
+      cursor: pointer;
+      padding: 24px 44px;
+      gap: 16px;
+    }
+
+    .arrow-right-svg {
+      transform: rotate(90deg);
+      width: 1em;
+      height: auto;
+
+      path {
+        fill: white;
+      }
+    }
+  }
+
+  .blur-violet {
+    position: absolute;
+    width: 512px;
+    height: 256px;
+    top: -70%;
+    left: 50%;
+    transform: translateY(-70%) translateX(50%);
+    z-index: -1;
+    background: $secondary-color;
+    filter: blur(200px);
+  }
 }
 
-footer ul {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-}
-
-footer ul > :last-child > * {
-  display: block;
-}
-
-footer button {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: white;
-  background: none;
-  border: 4px solid white;
-  padding: 24px 48px;
-  border-radius: 81px;
-  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  transition: all ease-in-out 400ms;
-}
-
-footer button:hover {
-  background: var(--black);
-  border: 4px solid var(--black);
-  cursor: pointer;
-  padding: 24px 44px;
-  gap: 16px;
-}
-
-footer button .arrow-right-svg {
-  transform: rotate(90deg);
-  width: 1em;
-  height: auto;
-}
-
-footer button .arrow-right-svg path {
-  fill: white;
-}
 .shopping-cards {
   max-width: 968px;
   height: 624px;
@@ -303,70 +291,67 @@ footer button .arrow-right-svg path {
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
-}
-.shopping-card {
-  height: 280px;
-  width: 280px;
-  background: linear-gradient(
-    229.3deg,
-    rgba(238, 0, 242, 0.25) 14.62%,
-    rgba(230, 11, 19, 0.25) 86.57%
-  );
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  display: flex;
-  justify-content: space-between;
-}
 
-.shopping-card:hover {
-  cursor: pointer;
-  outline: 1px solid var(--black);
-}
+  .shopping-card {
+    height: 280px;
+    width: 280px;
+    background: linear-gradient(
+      229.3deg,
+      rgba(238, 0, 242, 0.25) 14.62%,
+      rgba(230, 11, 19, 0.25) 86.57%
+    );
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: space-between;
 
-.shopping-card .price {
-  background: var(--black-10);
-  align-self: end;
-  margin-left: 5px;
-  transition: all ease-in-out 100ms;
-}
+    &:hover {
+      cursor: pointer;
+      outline: 1px solid $black;
+    }
 
-.shopping-card:hover .price {
-  cursor: pointer;
-  margin-bottom: 5px;
-}
+    .price {
+      background: $black-10;
+      align-self: end;
+      margin-left: 5px;
+      transition: all ease-in-out 100ms;
+    }
 
-.cart-plus {
-  margin-top: 16px;
-  margin-right: 16px;
-  cursor: pointer;
-}
+    &:hover .price {
+      cursor: pointer;
+      margin-bottom: 5px;
+    }
 
-.cart-plus-svg {
-  width: 1.5em;
-  height: auto;
-}
+    .cart-plus {
+      margin-top: 16px;
+      margin-right: 16px;
+      cursor: pointer;
 
-.cart-plus path {
-  transition: all ease-in-out 400ms;
-}
+      .cart-plus-svg {
+        width: 1.5em;
+        height: auto;
 
-.cart-plus:hover path {
-  fill: var(--secondary-color);
-}
+        path {
+          transition: all ease-in-out 400ms;
+        }
+      }
 
-.shopping-card .price-text {
-  background-image: var(--gradient);
-  font-size: 1.3rem;
-  /* Set the background size and repeat properties. */
-  background-size: 100%;
-  background-repeat: repeat;
+      &:hover path {
+        fill: $secondary-color;
+      }
+    }
+  }
 
-  /* Use the text as a mask for the background. */
-  /* This will show the gradient as a text color rather than element bg. */
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
+  .shopping-card .price-text {
+    background-image: $gradient;
+    font-size: 1.3rem;
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
 }
 
 @keyframes append-animate {
