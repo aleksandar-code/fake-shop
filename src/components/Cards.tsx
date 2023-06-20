@@ -6,12 +6,7 @@ export default function Cards() {
     <>
       <div className="shopping-cards">
         {cards.map((price, index) => {
-          return (
-            <Card
-              key={index}
-              price={price}
-            />
-          );
+          return <Card key={index} price={price} />;
         })}
       </div>
     </>
