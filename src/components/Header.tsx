@@ -41,7 +41,10 @@ export default function Header() {
   }
   return (
     <header>
-      <span className="icon-wrapper" onClick={() => navigate("/checkout")}>
+      <span
+        className="icon-wrapper"
+        onClick={() => navigate("/checkout")}
+      >
         <svg
           width="71"
           height="70"
@@ -65,7 +68,10 @@ export default function Header() {
         </svg>
       </span>
       <ul>
-        <li className="homepage-button" ref={homepageRef}>
+        <li
+          className="homepage-button"
+          ref={homepageRef}
+        >
           <h6
             onMouseEnter={(event) => placeArrowOnMouseEnter(event)}
             onMouseLeave={() => placeArrowOnMouseLeave()}
@@ -75,7 +81,10 @@ export default function Header() {
           </h6>
           {location === "/" && <ArrowUp arrowRef={arrowRef} />}
         </li>
-        <li className="shopping-button" ref={shoppingRef}>
+        <li
+          className="shopping-button"
+          ref={shoppingRef}
+        >
           <h6
             onMouseEnter={(event) => placeArrowOnMouseEnter(event)}
             onMouseLeave={() => placeArrowOnMouseLeave()}
@@ -87,7 +96,10 @@ export default function Header() {
         </li>
       </ul>
       <span className="megaspan">
-        <span className="icon-wrapper" onClick={() => navigate("/checkout")}>
+        <span
+          className="icon-wrapper"
+          onClick={() => navigate("/checkout")}
+        >
           <svg
             className="cart-svg"
             width="15"

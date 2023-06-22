@@ -9,10 +9,22 @@ export default function App() {
     <>
       <BrowserRouter basename="fake-shop">
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/shopping" element={<Shopping />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route
+            path="/"
+            element={<Homepage />}
+          />
+          <Route
+            path="/shopping"
+            element={<Shopping />}
+          />
+          <Route
+            path="/product"
+            element={<Product />}
+          />
+          <Route
+            path="/checkout"
+            element={<Checkout />}
+          />
         </Routes>
       </BrowserRouter>
     </>
