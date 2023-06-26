@@ -2,11 +2,11 @@ import Cards from "./Cards";
 import Footer from "./Footer";
 import Header from "./Header";
 
-export default function Shopping() {
+export default function Shopping(cards) {
   return (
     <>
       <Header />
-      <Cards />
+      <Cards cards={cards} />
       <Footer text="Checkout" />
     </>
   );

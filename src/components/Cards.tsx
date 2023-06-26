@@ -1,15 +1,16 @@
 import Card from "./Card";
 
-export default function Cards() {
-  const cards = [65, 69, 25, 105, 45, 20];
+export default function Cards({ cards }) {
+
   return (
     <>
       <div className="shopping-cards">
-        {cards.map((price, index) => {
+        {cards.map((card, index) => {
           return (
             <Card
               key={index}
-              price={price}
+              price={card.price}
+              img={card.img}
             />
           );
         })}

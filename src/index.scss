@@ -343,7 +343,7 @@ footer {
 
   .shopping-card .price-text {
     background-image: $gradient;
-    font-size: 1.3rem;
+    font-size: 1em;
     background-size: 100%;
     background-repeat: repeat;
     background-clip: text;
@@ -351,7 +351,14 @@ footer {
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
+    padding: 0px 7px;
   }
+}
+
+.shopping-cards img {
+  max-width: 155px;
+  height: 155px;
+  align-self: center;
 }
 
 @keyframes append-animate {

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Card({ price }) {
+export default function Card({ price, img }) {
   const navigate = useNavigate();
   return (
     <>
@@ -13,6 +13,7 @@ export default function Card({ price }) {
         <span className="price">
           <span className="price-text">{price}$</span>
         </span>
+        <img src={img}></img>
         <span className="cart-plus">
           <svg
             className="cart-plus-svg"
