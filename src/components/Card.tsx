@@ -1,14 +1,9 @@
-// import { useNavigate } from "react-router-dom";
 
 export default function Card({ price, img }) {
-  // const navigate = useNavigate();
   return (
     <>
       <div
         className="shopping-card"
-      // onClick={() => {
-      //   navigate("/product");
-      // }}
       >
         <span className="price">
           <span className="price-text">{price}$</span>

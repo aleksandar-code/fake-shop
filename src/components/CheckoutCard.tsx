@@ -1,19 +1,10 @@
 import { useEffect } from "react"
 
-export default function CheckoutCard({ setIsSubmitted, isSubmitted, setCards, card, cards, name, price, img, qty }) {
+export default function CheckoutCard({ card, name, price, img, qty }) {
 
 
 
-  const toggleIsSubmitted = () => {
-    setIsSubmitted(value => !value);
-  };
 
-  useEffect(() => {
-    if (isSubmitted === true) {
-      // navigation.navigate("/homepage");
-      console.log(card)
-    }
-  }, [isSubmitted]);
 
 
   return <>
@@ -25,7 +16,7 @@ export default function CheckoutCard({ setIsSubmitted, isSubmitted, setCards, ca
         <h6>Quantity:</h6>
         <input type="number" value={qty} onChange={(e) => {
           const newCard = { id: card.id, name: name, price: price, img: img, qty: e.target.value }
-          toggleIsSubmitted()
+
         }}></input>
       </div>
     </div>

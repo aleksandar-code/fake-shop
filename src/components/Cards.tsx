@@ -1,7 +1,6 @@
 import Card from "./Card";
 
-export default function Cards({ setCards, cards }) {
-  setCards(cards)
+export default function Cards({ cards }) {
   return (
     <>
       <div className="shopping-cards">

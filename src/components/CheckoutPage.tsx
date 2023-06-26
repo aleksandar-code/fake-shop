@@ -1,5 +1,5 @@
 import CheckoutCard from "./CheckoutCard"
-export default function CheckoutPage({ setIsSubmitted, isSubmitted, setCards, cards }) {
+export default function CheckoutPage({ setCards, cards }) {
 
   setCards(cards)
   return <>
@@ -17,8 +17,6 @@ export default function CheckoutPage({ setIsSubmitted, isSubmitted, setCards, ca
               setCards={setCards}
               cards={cards}
               card={card}
-              setIsSubmitted={setIsSubmitted}
-              isSubmitted={isSubmitted}
             />
           );
         })}

@@ -15,10 +15,6 @@ export default function App() {
   ]
   )
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-
-
   return (
     <>
       <BrowserRouter basename="fake-shop">
@@ -33,7 +29,7 @@ export default function App() {
           />
           <Route
             path="/checkout"
-            element={<Checkout setIsSubmitted={setIsSubmitted} isSubmitted={isSubmitted} setCards={setCards} cards={cards} />}
+            element={<Checkout setCards={setCards} cards={cards} />}
           />
         </Routes>
       </BrowserRouter>
