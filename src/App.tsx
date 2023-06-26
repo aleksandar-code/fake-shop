@@ -15,6 +15,18 @@ export default function App() {
   ]
   )
 
+  function updateCard(newCard) {
+    const updatedCards = cards.map((card) => {
+      if (newCard.id == card.id) {
+        return newCard
+      }
+      return cards
+    })
+    console.log(updatedCards)
+    // setCards(updatedCards)
+
+  }
+
   return (
     <>
       <BrowserRouter basename="fake-shop">
@@ -25,11 +37,11 @@ export default function App() {
           />
           <Route
             path="/shopping"
-            element={<Shopping setCards={setCards} cards={cards} />}
+            element={<Shopping setCards={updateCard} cards={cards} />}
           />
           <Route
             path="/checkout"
-            element={<Checkout setCards={setCards} cards={cards} />}
+            element={<Checkout setCards={updateCard} cards={cards} />}
           />
         </Routes>
       </BrowserRouter>

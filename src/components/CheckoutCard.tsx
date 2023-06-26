@@ -1,11 +1,4 @@
-import { useEffect } from "react"
-
-export default function CheckoutCard({ card, name, price, img, qty }) {
-
-
-
-
-
+export default function CheckoutCard({ setCards, cards, card, name, price, img, qty }) {
 
   return <>
     <div className="checkout-card">
@@ -16,7 +9,7 @@ export default function CheckoutCard({ card, name, price, img, qty }) {
         <h6>Quantity:</h6>
         <input type="number" value={qty} onChange={(e) => {
           const newCard = { id: card.id, name: name, price: price, img: img, qty: e.target.value }
-
+          setCards(...cards, newCard)
         }}></input>
       </div>
     </div>
