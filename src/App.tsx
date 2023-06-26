@@ -2,16 +2,22 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import Shopping from "./components/Shopping";
 import Checkout from "./components/Checkout";
+import { useState } from "react";
 
 export default function App() {
-  const cards = [
-    { price: 65, img: "src/imgs/pullover.png" },
-    { price: 69, img: "src/imgs/jeans.png" },
-    { price: 25, img: "src/imgs/jean.png" },
-    { price: 105, img: "src/imgs/jeans2.png" },
-    { price: 45, img: "src/imgs/gloves.png" },
-    { price: 20, img: "src/imgs/socks.png" },
+  const [cards, setCards] = useState([
+    { id: 0, name: "pullover", price: 65, img: "src/imgs/pullover.png", qty: 0 },
+    { id: 1, name: "jeans", price: 69, img: "src/imgs/jeans.png", qty: 0 },
+    { id: 2, name: "jean", price: 25, img: "src/imgs/jean.png", qty: 0 },
+    { id: 3, name: "jeans2", price: 105, img: "src/imgs/jeans2.png", qty: 0 },
+    { id: 4, name: "gloves", price: 45, img: "src/imgs/gloves.png", qty: 0 },
+    { id: 5, name: "socks", price: 20, img: "src/imgs/socks.png", qty: 0 },
   ]
+  )
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+
 
   return (
     <>
@@ -23,11 +29,11 @@ export default function App() {
           />
           <Route
             path="/shopping"
-            element={<Shopping cards={cards} />}
+            element={<Shopping setCards={setCards} cards={cards} />}
           />
           <Route
             path="/checkout"
-            element={<Checkout />}
+            element={<Checkout setIsSubmitted={setIsSubmitted} isSubmitted={isSubmitted} setCards={setCards} cards={cards} />}
           />
         </Routes>
       </BrowserRouter>

@@ -361,6 +361,12 @@ footer {
   align-self: center;
 }
 
+.checkout-page {
+  display: block;
+  background: red;
+  width: 1310px;
+}
+
 @keyframes append-animate {
   from {
     opacity: 0;
