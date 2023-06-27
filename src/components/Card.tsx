@@ -1,12 +1,14 @@
 
-export default function Card({ updateCard, card, price, img }) {
+export default function Card({ setItemNumber, itemNumber, updateCard, card, price, img }) {
   return (
     <>
       <div
         className="shopping-card"
         onClick={() => {
-          const newCard = { id: card.id, name: card.name, price: price, img: img, qty: Number(card.qty) + 1 }
-
+          const newCard = { id: card.id, name: card.name, price: price, img: img, qty: Number(card.qty) + 1, cart: true }
+          if (card.qty == 0) {
+            setItemNumber(itemNumber + 1)
+          }
           updateCard(newCard)
         }}
       >

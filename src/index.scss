@@ -72,7 +72,7 @@ p {
   flex-direction: column;
   min-height: 100vh;
   justify-content: space-between;
-  gap: 256px;
+  gap: 128px;
 }
 
 header {
@@ -112,11 +112,30 @@ header {
     }
   }
 
+  .megaspan {
+    position: relative;
+  }
+
+  .icon-wrapper .item-number {
+      position: absolute;
+      border: 1px solid $black-50;
+      border-radius: 50%;
+      height: 1.3em;
+      width: 1.3em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: -28%;
+      right: -50%;
+      background-color: white;
+      color: $secondary-color;
+      font-weight: bold;
+  }
+
   .cart-svg {
     width: 2em;
     height: auto;
-
-    path {
+        path {
       transition: all ease-in-out 500ms;
     }
 
@@ -284,6 +303,14 @@ footer {
   }
 }
 
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
 .shopping-cards {
   max-width: 968px;
   height: 624px;
@@ -363,12 +390,13 @@ footer {
 
 .checkout-page {
   display: grid;
-  width: 1310px;
+  max-width: 1310px;
+  min-height: 480px;
   grid-template-columns: repeat(5, 1fr);
   grid-column-gap: 24px;
   grid-row-gap: 0px;
-  place-self: center
-}
+  place-self: center;
+ }
 
 .checkout-header {
    grid-area: 1 / 1 / 2 / 6; 
@@ -377,7 +405,7 @@ footer {
 .checkout-cards {
    grid-area: 2 / 1 / 6 / 5;
    position: relative;
-
+   min-height: 390px;
    &:before {
     content: "Price";
     font-size: 1.3em;
@@ -450,11 +478,6 @@ footer {
     align-items: center;
     justify-content: center;
     transition: all ease-in-out 400ms;
-  
-    &:hover {
-      gap: 16px;
-      cursor: pointer;
-    }
   }
 }
 
@@ -504,6 +527,10 @@ input[type=number]::-webkit-outer-spin-button {
   color: $primary-color;
   border: none;
   background: none;
+}
+
+button {
+  cursor: pointer;
 }
 
 @keyframes append-animate {

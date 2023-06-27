@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import ArrowUp from "./ArrowUp";
 import { RefObject, useRef } from "react";
 
-export default function Header() {
+export default function Header({ itemNumber }) {
   const navigate = useNavigate();
   const location = useLocation().pathname;
   let currentUrlRef: RefObject<HTMLLIElement> | null = null;
@@ -100,6 +100,7 @@ export default function Header() {
           className="icon-wrapper"
           onClick={() => navigate("/checkout")}
         >
+          <span className="item-number ">{itemNumber}</span>
           <svg
             className="cart-svg"
             width="15"

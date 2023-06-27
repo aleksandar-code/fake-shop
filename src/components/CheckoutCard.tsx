@@ -10,9 +10,9 @@ export default function CheckoutCard({ updateCard, card, name, price, img, qty }
         <h6>Quantity:</h6>
         <button className="decrement" onClick={() => {
           if (inputValue) {
-            if (inputValue.current && Number(inputValue.current.value) - 1 !== -1) {
+            if (inputValue.current && Number(inputValue.current.value) - 1 !== 0) {
               inputValue.current.value = String((Number(inputValue.current.value) - 1))
-              const newCard = { id: card.id, name: name, price: price, img: img, qty: Number(inputValue.current.value) }
+              const newCard = { id: card.id, name: name, price: price, img: img, qty: Number(inputValue.current.value), cart: true }
               updateCard(newCard)
             }
           }
@@ -24,14 +24,14 @@ export default function CheckoutCard({ updateCard, card, name, price, img, qty }
           </span>
         </button>
         <input type="number" ref={inputValue} value={qty} min={0} max={100} onChange={(e) => {
-          const newCard = { id: card.id, name: name, price: price, img: img, qty: Number(e.currentTarget.value) }
+          const newCard = { id: card.id, name: name, price: price, img: img, qty: Number(e.currentTarget.value), cart: true }
           updateCard(newCard)
         }}></input>
         <button className="increment" onClick={() => {
           if (inputValue) {
             if (inputValue.current && Number(inputValue.current.value) + 1 !== 101) {
               inputValue.current.value = String((Number(inputValue.current.value) + 1))
-              const newCard = { id: card.id, name: name, price: price, img: img, qty: Number(inputValue.current.value) }
+              const newCard = { id: card.id, name: name, price: price, img: img, qty: Number(inputValue.current.value), cart: true }
               updateCard(newCard)
             }
           }
@@ -42,7 +42,15 @@ export default function CheckoutCard({ updateCard, card, name, price, img, qty }
             </svg>
           </span>
         </button>
-        <button className="checkout-delete">Delete</button>
+        <button className="checkout-delete" onClick={() => {
+          if (inputValue) {
+            if (inputValue.current) {
+              inputValue.current.value = "0"
+              const newCard = { id: card.id, name: name, price: price, img: img, qty: 0, cart: false }
+              updateCard(newCard)
+            }
+          }
+        }}>Delete</button>
       </div>
       <h6>{price}$</h6>
     </div>
