@@ -362,9 +362,148 @@ footer {
 }
 
 .checkout-page {
-  display: block;
-  background: red;
+  display: grid;
   width: 1310px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 24px;
+  grid-row-gap: 0px;
+  place-self: center
+}
+
+.checkout-header {
+   grid-area: 1 / 1 / 2 / 6; 
+}
+
+.checkout-cards {
+   grid-area: 2 / 1 / 6 / 5;
+   position: relative;
+
+   &:before {
+    content: "Price";
+    font-size: 1.3em;
+    position: absolute;
+    top: -24px;
+    right: 8px;
+   }
+}
+
+.checkout-cta {
+  grid-area: 2 / 5 / 6 / 6;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+
+.checkout-card:first-child {  
+   &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid blue;
+      position: absolute;
+    }
+}
+
+.checkout-card {
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid blue;
+    position: absolute;
+  }
+
+
+  &:first-child:after {
+    display: none;
+  }
+}
+
+.checkout-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout-card {
+  display: flex;
+  & h6:last-child {
+    margin-left: auto;
+    padding-right: 8px;
+  }
+}
+
+.checkout-cta {
+  display: flex;
+  flex-direction: column;
+  .checkout-button {
+    border: none;
+    color: white;
+    font-size: 1.3em;
+    font-weight: bold;
+    background: $gradient;
+    padding: 24px 48px;
+    border-radius: 81px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    transition: all ease-in-out 400ms;
+  
+    &:hover {
+      gap: 16px;
+      cursor: pointer;
+    }
+  }
+}
+
+.user-interaction {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 16px;
+
+  .icon-wrapper svg{
+    width: 1em;
+    height: auto;
+  }
+ 
+}
+
+input {
+  border-radius: 81px;
+  text-align: center;
+  border: none;
+  font-size: 1em;
+  font-weight: bold;
+  color: $secondary-color;
+}
+
+input[type="number"] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+}
+
+.increment, .decrement {
+  border: none;
+  padding: 24px 48px;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.checkout-delete {
+  font-size: 1em;
+  color: $primary-color;
+  border: none;
+  background: none;
 }
 
 @keyframes append-animate {
