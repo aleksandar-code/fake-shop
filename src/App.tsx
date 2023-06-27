@@ -36,7 +36,7 @@ export default function App() {
           />
           <Route
             path="/shopping"
-            element={<Shopping cards={cards} />}
+            element={<Shopping updateCard={updateCard} cards={cards} />}
           />
           <Route
             path="/checkout"

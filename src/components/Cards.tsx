@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-export default function Cards({ cards }) {
+export default function Cards({ updateCard, cards }) {
   return (
     <>
       <div className="shopping-cards">
@@ -11,6 +11,8 @@ export default function Cards({ cards }) {
               key={card.id}
               price={card.price}
               img={card.img}
+              updateCard={updateCard}
+              card={card}
             />
           );
         })}

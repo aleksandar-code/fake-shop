@@ -1,9 +1,14 @@
 
-export default function Card({ price, img }) {
+export default function Card({ updateCard, card, price, img }) {
   return (
     <>
       <div
         className="shopping-card"
+        onClick={() => {
+          const newCard = { id: card.id, name: card.name, price: price, img: img, qty: Number(card.qty) + 1 }
+
+          updateCard(newCard)
+        }}
       >
         <span className="price">
           <span className="price-text">{price}$</span>
@@ -26,7 +31,7 @@ export default function Card({ price, img }) {
             />
           </svg>
         </span>
-      </div>
+      </div >
     </>
   );
 }
