@@ -1,7 +1,6 @@
 import CheckoutCard from "./CheckoutCard"
-export default function CheckoutPage({ setCards, cards }) {
+export default function CheckoutPage({ updateCard, cards }) {
 
-  setCards(cards)
   return <>
     <div className="checkout-page">
       <h4>Shopping</h4>
@@ -14,8 +13,7 @@ export default function CheckoutPage({ setCards, cards }) {
               img={card.img}
               name={card.name}
               qty={card.qty}
-              setCards={setCards}
-              cards={cards}
+              updateCard={updateCard}
               card={card}
             />
           );

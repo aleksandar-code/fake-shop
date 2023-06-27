@@ -16,15 +16,14 @@ export default function App() {
   )
 
   function updateCard(newCard: { id: number, name: string, price: number, img: string, qty: number }) {
-    const updatedCards = cards.map((card) => {
-      if (newCard.id == card.id) {
-        return newCard
+    console.log("hello from app")
+    const updateCards = cards.map((card) => {
+      if (card.id == newCard.id) {
+        return { ...card, qty: newCard.qty }
       }
-      return cards
+      return card
     })
-    console.log(updatedCards)
-    // setCards(updatedCards)
-
+    setCards(updateCards)
   }
 
   return (
@@ -41,7 +40,7 @@ export default function App() {
           />
           <Route
             path="/checkout"
-            element={<Checkout setCards={updateCard} cards={cards} />}
+            element={<Checkout updateCard={updateCard} cards={cards} />}
           />
         </Routes>
       </BrowserRouter>
