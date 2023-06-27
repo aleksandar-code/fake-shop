@@ -33,7 +33,7 @@ export default function App() {
       return card
     })
 
-    if (newCard.cart == true) {
+    if (newCard.cart == true && cards[newCard.id].qty == 0) {
       setItemNumber(itemNumber + 1)
     } else if (newCard.cart === false && itemNumber !== 0) {
       setItemNumber(itemNumber - 1)
